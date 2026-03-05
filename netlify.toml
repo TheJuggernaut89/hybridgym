@@ -1,0 +1,18 @@
+[build]
+  publish = "dist"
+  command = "npm run build"
+
+[dev]
+  publish = "dist"
+  autoLaunch = true
+
+# SPA redirect rule for React Router
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+[context.production]
+  environment = { NODE_VERSION = "18" }
+
+# Site ID: 29b2fe22-f2f5-42e3-bc84-52e2dbd53079

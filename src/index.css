@@ -1,47 +1,7 @@
 @import "tailwindcss";
 
-/* Design System - Hybrid Combative Gym */
-
 /* Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&display=swap');
-
-/* Custom CSS Variables */
-:root {
-  /* Primary Colors */
-  --color-primary: #FF3B30;
-  --color-primary-light: #FF6B6B;
-  --color-primary-dark: #C41E3A;
-  
-  /* Secondary Colors */
-  --color-secondary: #FFD700;
-  --color-secondary-light: #FFE55C;
-  --color-secondary-dark: #B8860B;
-  
-  /* Accent Colors */
-  --color-accent-blue: #00D9FF;
-  --color-accent-green: #39FF14;
-  --color-accent-orange: #FF9500;
-  
-  /* Neutral Colors */
-  --color-black: #000000;
-  --color-neutral-900: #0A0A0A;
-  --color-neutral-800: #141414;
-  --color-neutral-700: #1F1F1F;
-  --color-neutral-600: #2D2D2D;
-  --color-neutral-500: #404040;
-  --color-neutral-400: #6B7280;
-  --color-neutral-300: #9CA3AF;
-  --color-neutral-200: #D1D5DB;
-  --color-neutral-100: #E5E7EB;
-  --color-neutral-50: #F9FAFB;
-  --color-white: #FFFFFF;
-  
-  /* Semantic Colors */
-  --color-success: #22C55E;
-  --color-error: #EF4444;
-  --color-warning: #F59E0B;
-  --color-info: #3B82F6;
-}
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
 
 /* Base Styles */
 * {
@@ -56,109 +16,10 @@ html {
 
 body {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-  background-color: var(--color-neutral-900);
-  color: var(--color-white);
+  background-color: #0a0a0a;
+  color: #ffffff;
   line-height: 1.6;
   overflow-x: hidden;
-}
-
-/* Typography */
-.font-heading {
-  font-family: 'Bebas Neue', 'Inter', 'Arial Black', sans-serif;
-}
-
-.font-body {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-}
-
-/* Heading Styles */
-h1, h2, h3, h4, h5, h6 {
-  font-weight: 700;
-  line-height: 1.1;
-}
-
-/* Custom Animations */
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(40px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-@keyframes slideInRight {
-  from {
-    opacity: 0;
-    transform: translateX(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-@keyframes countUp {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes glow {
-  0%, 100% { box-shadow: 0 0 20px rgba(255, 59, 48, 0.3); }
-  50% { box-shadow: 0 0 40px rgba(255, 59, 48, 0.5); }
-}
-
-@keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
-}
-
-/* Utility Classes */
-.animate-fade-in-up {
-  animation: fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-}
-
-.animate-fade-in {
-  animation: fadeIn 0.6s ease-out forwards;
-}
-
-.animate-glow {
-  animation: glow 2s ease-in-out infinite;
-}
-
-.animate-float {
-  animation: float 3s ease-in-out infinite;
-}
-
-/* Gradient Overlays */
-.gradient-hero {
-  background: linear-gradient(to bottom, rgba(10, 10, 10, 0.3), rgba(10, 10, 10, 0.6) 50%, rgba(10, 10, 10, 0.95));
-}
-
-.gradient-red-glow {
-  background: radial-gradient(circle, rgba(255, 59, 48, 0.4) 0%, rgba(255, 59, 48, 0) 70%);
-}
-
-.gradient-gold {
-  background: linear-gradient(135deg, #FFD700 0%, #B8860B 100%);
-}
-
-.gradient-section-divider {
-  background: linear-gradient(to right, transparent, #FF3B30 50%, transparent);
-}
-
-/* Glass Effect */
-.glass {
-  background: rgba(10, 10, 10, 0.95);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
 }
 
 /* Custom Scrollbar */
@@ -167,122 +28,20 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--color-neutral-900);
+  background: #0a0a0a;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--color-neutral-600);
+  background: #2d2d2d;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--color-neutral-500);
+  background: #3d3d3d;
 }
 
 /* Selection */
 ::selection {
-  background: var(--color-primary);
-  color: var(--color-white);
-}
-
-/* Button Base Styles */
-.btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 16px 32px;
-  font-weight: 600;
-  font-size: 14px;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  border-radius: 8px;
-  transition: all 0.2s ease;
-  cursor: pointer;
-  border: none;
-  text-decoration: none;
-}
-
-.btn-primary {
-  background-color: var(--color-primary);
-  color: var(--color-white);
-}
-
-.btn-primary:hover {
-  background-color: var(--color-primary-light);
-  transform: scale(1.02);
-  box-shadow: 0 0 40px rgba(255, 59, 48, 0.3);
-}
-
-.btn-secondary {
-  background-color: transparent;
-  color: var(--color-white);
-  border: 2px solid var(--color-primary);
-}
-
-.btn-secondary:hover {
-  background-color: rgba(255, 59, 48, 0.1);
-}
-
-.btn:active {
-  transform: scale(0.98);
-}
-
-/* Card Styles */
-.card {
-  background-color: var(--color-neutral-800);
-  border: 1px solid var(--color-neutral-600);
-  border-radius: 12px;
-  overflow: hidden;
-  transition: all 0.3s ease;
-}
-
-.card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 10px 20px -4px rgba(0, 0, 0, 0.5), 0 8px 12px -4px rgba(0, 0, 0, 0.3);
-}
-
-/* Section Styles */
-.section {
-  padding: 120px 0;
-}
-
-.section-alt {
-  background-color: var(--color-neutral-800);
-}
-
-.container {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 0 24px;
-}
-
-/* Responsive Typography */
-@media (max-width: 639px) {
-  .hero-title {
-    font-size: 40px;
-  }
-  
-  .section-title {
-    font-size: 32px;
-  }
-}
-
-@media (min-width: 640px) and (max-width: 1023px) {
-  .hero-title {
-    font-size: 56px;
-  }
-  
-  .section-title {
-    font-size: 40px;
-  }
-}
-
-@media (min-width: 1024px) {
-  .hero-title {
-    font-size: 72px;
-  }
-  
-  .section-title {
-    font-size: 48px;
-  }
+  background: #c8ff00;
+  color: #0a0a0a;
 }

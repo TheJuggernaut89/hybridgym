@@ -12,7 +12,7 @@ const CTA = () => {
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          className="relative overflow-hidden rounded-3xl bg-gradient-to-r from-[#c8ff00] to-[#a8d900] p-8 md:p-16"
+          className="relative overflow-hidden rounded-3xl bg-gradient-to-r from-[#c8ff00] to-[#a8d900] p-10 md:p-16"
         >
           {/* Background Pattern */}
           <div className="absolute inset-0 opacity-10">
@@ -24,19 +24,19 @@ const CTA = () => {
             />
           </div>
 
-          <div className="relative z-10 grid md:grid-cols-2 gap-8 items-center">
+          <div className="relative z-10 grid md:grid-cols-2 gap-10 items-center">
             <div>
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-black leading-tight mb-4">
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-black leading-[1.1] mb-4">
                 Free 7-day trial signup
               </h2>
-              <p className="text-black/70 text-lg">
+              <p className="text-black/60 text-lg">
                 Sign up for free 7-day trial with us and experience all of our services for free at Hybrid.
               </p>
             </div>
             <div className="flex justify-start md:justify-end">
-              <button className="inline-flex items-center gap-2 px-8 py-4 bg-black text-white font-semibold rounded-full hover:bg-black/80 transition-all text-sm uppercase tracking-wider group">
+              <button className="inline-flex items-center gap-2 px-8 py-4 bg-black text-white font-semibold rounded-full hover:bg-black/80 transition-all duration-300 text-sm uppercase tracking-wider group">
                 Get Started
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
               </button>
             </div>
           </div>

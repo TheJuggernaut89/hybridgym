@@ -33,16 +33,6 @@ const Facility = () => {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-transparent to-transparent" />
             </div>
-            {/* Floating Card */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ delay: 0.3 }}
-              className="absolute -bottom-6 -right-6 bg-[#c8ff00] text-black p-6 rounded-2xl hidden md:block"
-            >
-              <div className="text-3xl font-bold">20,000+</div>
-              <div className="text-sm font-medium">Square Feet</div>
-            </motion.div>
           </motion.div>
 
           {/* Content Side */}
@@ -51,12 +41,12 @@ const Facility = () => {
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ delay: 0.2 }}
           >
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-[1.1] mb-6">
               <span className="text-[#c8ff00]">5-star premium</span>
               <br />
               fitness center
             </h2>
-            <p className="text-white/60 text-lg mb-8">
+            <p className="text-white/50 text-lg mb-10">
               Modern facilities with full equipment. Spacious and comfortable space designed for serious training.
             </p>
 
@@ -68,12 +58,12 @@ const Facility = () => {
                   initial={{ opacity: 0, x: 20 }}
                   animate={isInView ? { opacity: 1, x: 0 } : {}}
                   transition={{ delay: 0.3 + index * 0.05 }}
-                  className="flex items-center gap-3"
+                  className="flex items-center gap-4"
                 >
                   <div className="w-6 h-6 bg-[#c8ff00]/10 rounded-full flex items-center justify-center flex-shrink-0">
                     <Check className="w-4 h-4 text-[#c8ff00]" />
                   </div>
-                  <span className="text-white/70">{feature}</span>
+                  <span className="text-white/60">{feature}</span>
                 </motion.div>
               ))}
             </div>

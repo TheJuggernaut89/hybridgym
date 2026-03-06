@@ -1,6 +1,6 @@
 import { useRef, useState } from 'react';
-import { motion, useInView } from 'framer-motion';
-import { Quote, ChevronLeft, ChevronRight } from 'lucide-react';
+import { motion, useInView, AnimatePresence } from 'framer-motion';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 const Testimonials = () => {
   const ref = useRef(null);
@@ -51,64 +51,66 @@ const Testimonials = () => {
         </motion.div>
 
         {/* Testimonial Card */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ delay: 0.2 }}
-          className="max-w-3xl mx-auto"
-        >
-          <div className="bg-white/[0.02] border border-white/10 rounded-3xl p-8 md:p-12 text-center">
-            {/* Quote Icon */}
-            <div className="w-16 h-16 bg-[#c8ff00]/10 rounded-full flex items-center justify-center mx-auto mb-8">
-              <Quote className="w-8 h-8 text-[#c8ff00]" />
-            </div>
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={activeIndex}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.4 }}
+            className="max-w-3xl mx-auto"
+          >
+            <div className="bg-white/[0.02] border border-white/5 rounded-3xl p-10 md:p-14 text-center">
+              {/* Quote Mark */}
+              <div className="text-6xl text-[#c8ff00]/20 font-serif mb-6">"</div>
 
-            {/* Quote */}
-            <p className="text-white text-xl md:text-2xl leading-relaxed mb-8">
-              &ldquo;{testimonials[activeIndex].quote}&rdquo;
-            </p>
+              {/* Quote */}
+              <p className="text-white/80 text-xl md:text-2xl leading-relaxed mb-10">
+                {testimonials[activeIndex].quote}
+              </p>
 
-            {/* Author */}
-            <div className="flex items-center justify-center gap-4 mb-8">
-              <img
-                src={testimonials[activeIndex].image}
-                alt={testimonials[activeIndex].name}
-                className="w-14 h-14 rounded-full object-cover"
-              />
-              <div className="text-left">
-                <div className="text-white font-semibold">{testimonials[activeIndex].name}</div>
-                <div className="text-white/50 text-sm">{testimonials[activeIndex].role}</div>
+              {/* Author */}
+              <div className="flex items-center justify-center gap-4 mb-10">
+                <img
+                  src={testimonials[activeIndex].image}
+                  alt={testimonials[activeIndex].name}
+                  className="w-14 h-14 rounded-full object-cover"
+                />
+                <div className="text-left">
+                  <div className="text-white font-semibold text-lg">{testimonials[activeIndex].name}</div>
+                  <div className="text-white/40 text-sm">{testimonials[activeIndex].role}</div>
+                </div>
+              </div>
+
+              {/* Navigation */}
+              <div className="flex items-center justify-center gap-4">
+                <button
+                  onClick={prev}
+                  className="w-12 h-12 bg-white/5 border border-white/10 rounded-full flex items-center justify-center text-white hover:bg-[#c8ff00] hover:text-black hover:border-[#c8ff00] transition-all duration-300"
+                >
+                  <ChevronLeft className="w-5 h-5" />
+                </button>
+                <div className="flex gap-2">
+                  {testimonials.map((_, index) => (
+                    <button
+                      key={index}
+                      onClick={() => setActiveIndex(index)}
+                      className={`h-2 rounded-full transition-all duration-300 ${
+                        index === activeIndex ? 'w-8 bg-[#c8ff00]' : 'w-2 bg-white/20 hover:bg-white/30'
+                      }`}
+                    />
+                  ))}
+                </div>
+                <button
+                  onClick={next}
+                  className="w-12 h-12 bg-white/5 border border-white/10 rounded-full flex items-center justify-center text-white hover:bg-[#c8ff00] hover:text-black hover:border-[#c8ff00] transition-all duration-300"
+                >
+                  <ChevronRight className="w-5 h-5" />
+                </button>
               </div>
             </div>
-
-            {/* Navigation */}
-            <div className="flex items-center justify-center gap-4">
-              <button
-                onClick={prev}
-                className="w-12 h-12 bg-white/5 border border-white/10 rounded-full flex items-center justify-center text-white hover:bg-[#c8ff00] hover:text-black hover:border-[#c8ff00] transition-all"
-              >
-                <ChevronLeft className="w-5 h-5" />
-              </button>
-              <div className="flex gap-2">
-                {testimonials.map((_, index) => (
-                  <button
-                    key={index}
-                    onClick={() => setActiveIndex(index)}
-                    className={`w-2 h-2 rounded-full transition-all ${
-                      index === activeIndex ? 'w-8 bg-[#c8ff00]' : 'bg-white/20'
-                    }`}
-                  />
-                ))}
-              </div>
-              <button
-                onClick={next}
-                className="w-12 h-12 bg-white/5 border border-white/10 rounded-full flex items-center justify-center text-white hover:bg-[#c8ff00] hover:text-black hover:border-[#c8ff00] transition-all"
-              >
-                <ChevronRight className="w-5 h-5" />
-              </button>
-            </div>
-          </div>
-        </motion.div>
+          </motion.div>
+        </AnimatePresence>
       </div>
     </section>
   );

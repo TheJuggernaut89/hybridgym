@@ -8,19 +8,19 @@ const Hero = () => {
       <div className="absolute inset-0 bg-gradient-to-br from-[#0a0a0a] via-[#0f0f0f] to-[#0a0a0a]" />
       
       {/* Ambient glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-[#c8ff00]/5 rounded-full blur-[150px]" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[1000px] bg-[#c8ff00]/3 rounded-full blur-[200px]" />
       
       <div className="container mx-auto px-6 py-32 relative z-10">
-        <div className="max-w-4xl mx-auto text-center">
+        <div className="max-w-5xl mx-auto text-center">
           {/* Hours Badge */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="inline-flex items-center gap-2 px-4 py-2 bg-white/5 border border-white/10 rounded-full mb-8"
+            className="inline-flex items-center gap-2 px-4 py-2 bg-white/5 border border-white/10 rounded-full mb-6"
           >
             <Clock className="w-4 h-4 text-[#c8ff00]" />
-            <span className="text-white/70 text-sm">6 a.m - 10 p.m (Mon - Sun)</span>
+            <span className="text-white/60 text-sm">6 a.m - 10 p.m (Mon - Sun)</span>
           </motion.div>
 
           {/* Trusted Badge */}
@@ -28,7 +28,7 @@ const Hero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="flex items-center justify-center gap-2 mb-8"
+            className="flex items-center justify-center gap-3 mb-10"
           >
             <div className="flex -space-x-2">
               {[1, 2, 3, 4].map((i) => (
@@ -43,7 +43,7 @@ const Hero = () => {
                 <Star key={i} className="w-4 h-4 fill-[#c8ff00] text-[#c8ff00]" />
               ))}
             </div>
-            <span className="text-white/70 text-sm">Trusted by 100k+ clients</span>
+            <span className="text-white/50 text-sm">Trusted by 100k+ clients</span>
           </motion.div>
 
           {/* Main Headline */}
@@ -51,7 +51,7 @@ const Hero = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-white leading-[1.1] mb-6"
+            className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-bold text-white leading-[0.95] mb-8 tracking-tight"
           >
             Transform
             <br />
@@ -65,7 +65,7 @@ const Hero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
-            className="text-white/60 text-lg md:text-xl max-w-xl mx-auto mb-10"
+            className="text-white/50 text-lg md:text-xl max-w-2xl mx-auto mb-12"
           >
             With ten years of experience in the health and wellness industry, our fitness solution continues to be a top option throughout the region.
           </motion.p>
@@ -97,8 +97,8 @@ const Hero = () => {
         <img
           src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=1200&q=80"
           alt="Gym Training"
-          className="w-full h-full object-cover opacity-60 mask-gradient"
-          style={{ maskImage: 'linear-gradient(to right, transparent, black 30%)' }}
+          className="w-full h-full object-cover opacity-50"
+          style={{ maskImage: 'linear-gradient(to right, transparent, black 40%)' }}
         />
       </motion.div>
     </section>

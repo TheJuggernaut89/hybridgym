@@ -26,12 +26,12 @@ const Branches = () => {
             initial={{ opacity: 0, x: -30 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
           >
-            <span className="text-[#c8ff00] text-sm font-semibold uppercase tracking-widest mb-4 block">
-              All Branches
+            <span className="text-[#c8ff00] text-sm font-medium uppercase tracking-widest mb-6 block">
+              All branches
             </span>
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-[1.1]">
               We have{' '}
-              <span className="text-[#c8ff00]">8 branches</span> across the country for your convenience
+              <span className="text-[#c8ff00]">8 branches</span> across the United States for your convenience to choose the one closest to you.
             </h2>
           </motion.div>
 
@@ -48,15 +48,15 @@ const Branches = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ delay: 0.3 + index * 0.05 }}
-                className="p-6 bg-white/[0.02] border border-white/10 rounded-2xl hover:border-[#c8ff00]/30 hover:bg-white/[0.04] transition-all group cursor-pointer"
+                className="p-6 bg-white/[0.02] border border-white/5 rounded-2xl hover:border-[#c8ff00]/20 hover:bg-white/[0.03] transition-all duration-500 group cursor-pointer"
               >
                 <div className="flex items-start gap-3">
                   <MapPin className="w-5 h-5 text-[#c8ff00] flex-shrink-0 mt-0.5" />
                   <div>
-                    <div className="text-white font-semibold mb-1 group-hover:text-[#c8ff00] transition-colors">
+                    <div className="text-white font-semibold mb-1 group-hover:text-[#c8ff00] transition-colors duration-300">
                       Hybrid {branch.city}
                     </div>
-                    <div className="text-white/50 text-sm">{branch.address}</div>
+                    <div className="text-white/40 text-sm">{branch.address}</div>
                   </div>
                 </div>
               </motion.div>

@@ -36,14 +36,18 @@ const Navigation = () => {
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          isScrolled ? 'bg-[#0a0a0a]/95 backdrop-blur-lg border-b border-white/10' : 'bg-transparent'
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+          isScrolled ? 'bg-[#0a0a0a]/90 backdrop-blur-xl border-b border-white/5' : 'bg-transparent'
         }`}
       >
         <div className="container mx-auto px-6">
           <div className="flex items-center justify-between h-20">
             {/* Logo */}
-            <a href="#home" onClick={(e) => { e.preventDefault(); scrollToSection('#home'); }} className="text-2xl font-bold text-white">
+            <a 
+              href="#home" 
+              onClick={(e) => { e.preventDefault(); scrollToSection('#home'); }} 
+              className="text-2xl font-bold text-white tracking-tight"
+            >
               Hybrid<span className="text-[#c8ff00]">Gym</span>
             </a>
 
@@ -54,7 +58,7 @@ const Navigation = () => {
                   key={link.name}
                   href={link.href}
                   onClick={(e) => { e.preventDefault(); scrollToSection(link.href); }}
-                  className="text-white/70 hover:text-[#c8ff00] transition-colors text-sm font-medium"
+                  className="text-white/60 hover:text-[#c8ff00] transition-colors text-sm font-medium"
                 >
                   {link.name}
                 </a>
@@ -65,7 +69,7 @@ const Navigation = () => {
             <div className="hidden md:block">
               <button 
                 onClick={() => scrollToSection('#membership')}
-                className="px-6 py-3 bg-[#c8ff00] text-black font-semibold rounded-full hover:bg-[#d4ff33] transition-all text-sm"
+                className="px-6 py-3 bg-[#c8ff00] text-black font-semibold rounded-full hover:bg-[#d4ff33] transition-all duration-300 text-sm"
               >
                 Join Now
               </button>
@@ -90,14 +94,14 @@ const Navigation = () => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="fixed inset-0 bg-black/80 z-40 md:hidden"
+              className="fixed inset-0 bg-black/90 backdrop-blur-xl z-40 md:hidden"
               onClick={() => setIsMobileMenuOpen(false)}
             />
             <motion.div
               initial={{ x: '100%' }}
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
-              transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+              transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
               className="fixed top-0 right-0 bottom-0 w-[300px] bg-[#0a0a0a] z-50 md:hidden border-l border-white/10"
             >
               <div className="flex flex-col h-full pt-24 px-6">
@@ -109,7 +113,7 @@ const Navigation = () => {
                     initial={{ opacity: 0, x: 20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: index * 0.05 }}
-                    className="text-lg font-medium text-white/70 hover:text-[#c8ff00] transition-colors py-4 border-b border-white/10"
+                    className="text-lg font-medium text-white/70 hover:text-[#c8ff00] transition-colors py-4 border-b border-white/5"
                   >
                     {link.name}
                   </motion.a>

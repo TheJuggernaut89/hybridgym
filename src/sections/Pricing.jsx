@@ -10,43 +10,40 @@ const Pricing = () => {
   const plans = [
     {
       name: 'Gym',
-      monthlyPrice: 49,
-      yearlyPrice: 39,
-      description: 'Perfect for beginners',
+      monthlyPrice: 24,
+      yearlyPrice: 19,
       features: [
         'Use the gym equipment',
-        'Access locker rooms',
-        'Basic fitness assessment',
-        'Open gym access',
+        'Use steam room',
+        'Use the shower',
+        'Use the locker',
       ],
     },
     {
-      name: 'Full Access',
-      monthlyPrice: 99,
-      yearlyPrice: 79,
-      description: 'Most popular choice',
+      name: 'Full services',
+      monthlyPrice: 48,
+      yearlyPrice: 38,
       popular: true,
       features: [
-        'Everything in Gym',
-        'All group classes',
-        'MMA & BJJ classes',
-        'Muay Thai training',
-        'Recovery suite access',
-        'Personal training discount',
+        'Use the gym equipment',
+        'Use the swimming pool',
+        'Take Group-X classes',
+        'Take Yoga classes',
+        'Use steam room',
+        'Use the shower',
+        'Use the locker',
       ],
     },
     {
-      name: 'Personal Training',
-      monthlyPrice: 199,
-      yearlyPrice: 159,
-      description: 'Premium experience',
+      name: 'Personal trainer',
+      monthlyPrice: null,
+      sessionPrice: 20,
       features: [
-        'Everything in Full Access',
-        '8 PT sessions/month',
-        'Custom nutrition plan',
-        'Body composition tracking',
-        'Priority booking',
-        'Guest passes (4/month)',
+        'Personalize exercises',
+        'Use the swimming pool',
+        'Use steam room',
+        'Use the shower',
+        'Use the locker',
       ],
     },
   ];
@@ -72,28 +69,30 @@ const Pricing = () => {
           transition={{ delay: 0.1 }}
           className="flex flex-col items-center gap-6 mb-12"
         >
-          <span className="text-white/50 text-sm">Choose service:</span>
-          <div className="inline-flex bg-white/5 border border-white/10 rounded-full p-1">
+          <span className="text-white/40 text-sm">Choose service:</span>
+          <div className="inline-flex bg-white/5 border border-white/5 rounded-full p-1">
             <button
               onClick={() => setBillingType('monthly')}
-              className={`px-6 py-3 rounded-full text-sm font-semibold transition-all ${
+              className={`px-6 py-3 rounded-full text-sm font-medium transition-all duration-300 ${
                 billingType === 'monthly'
                   ? 'bg-[#c8ff00] text-black'
-                  : 'text-white/70 hover:text-white'
+                  : 'text-white/60 hover:text-white'
               }`}
             >
               Monthly billing
             </button>
             <button
               onClick={() => setBillingType('yearly')}
-              className={`px-6 py-3 rounded-full text-sm font-semibold transition-all flex items-center gap-2 ${
+              className={`px-6 py-3 rounded-full text-sm font-medium transition-all duration-300 flex items-center gap-2 ${
                 billingType === 'yearly'
                   ? 'bg-[#c8ff00] text-black'
-                  : 'text-white/70 hover:text-white'
+                  : 'text-white/60 hover:text-white'
               }`}
             >
               Annual Billing
-              <span className="text-xs bg-[#c8ff00]/20 text-[#c8ff00] px-2 py-0.5 rounded-full">
+              <span className={`text-xs px-2 py-0.5 rounded-full ${
+                billingType === 'yearly' ? 'bg-black/20 text-black' : 'bg-[#c8ff00]/10 text-[#c8ff00]'
+              }`}>
                 Save 20%
               </span>
             </button>
@@ -111,34 +110,26 @@ const Pricing = () => {
               className={`relative p-8 rounded-3xl ${
                 plan.popular
                   ? 'bg-[#c8ff00] text-black'
-                  : 'bg-white/[0.02] border border-white/10 text-white'
+                  : 'bg-white/[0.02] border border-white/5 text-white'
               }`}
             >
-              {plan.popular && (
-                <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-black text-[#c8ff00] text-xs font-bold uppercase tracking-wider px-4 py-1 rounded-full">
-                  Most Popular
-                </div>
-              )}
-
-              <div className="mb-6">
-                <h3 className={`text-2xl font-bold mb-2 ${plan.popular ? 'text-black' : 'text-white'}`}>
+              <div className="mb-8">
+                <h3 className={`text-2xl font-bold mb-6 ${plan.popular ? 'text-black' : 'text-white'}`}>
                   {plan.name}
                 </h3>
-                <p className={`text-sm ${plan.popular ? 'text-black/60' : 'text-white/50'}`}>
-                  {plan.description}
-                </p>
+                <div className="flex items-baseline gap-1">
+                  <span className={`text-5xl font-bold ${plan.popular ? 'text-black' : 'text-white'}`}>
+                    ${plan.sessionPrice 
+                      ? plan.sessionPrice 
+                      : (billingType === 'monthly' ? plan.monthlyPrice : plan.yearlyPrice)}
+                  </span>
+                  <span className={`text-sm ${plan.popular ? 'text-black/60' : 'text-white/40'}`}>
+                    {plan.sessionPrice ? '+/session' : '/month'}
+                  </span>
+                </div>
               </div>
 
-              <div className="mb-8">
-                <span className={`text-5xl font-bold ${plan.popular ? 'text-black' : 'text-white'}`}>
-                  ${billingType === 'monthly' ? plan.monthlyPrice : plan.yearlyPrice}
-                </span>
-                <span className={`text-sm ${plan.popular ? 'text-black/60' : 'text-white/50'}`}>
-                  /month
-                </span>
-              </div>
-
-              <ul className="space-y-3 mb-8">
+              <ul className="space-y-4 mb-10">
                 {plan.features.map((feature) => (
                   <li key={feature} className="flex items-center gap-3">
                     <div className={`w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0 ${
@@ -146,7 +137,7 @@ const Pricing = () => {
                     }`}>
                       <Check className={`w-3 h-3 ${plan.popular ? 'text-black' : 'text-[#c8ff00]'}`} />
                     </div>
-                    <span className={`text-sm ${plan.popular ? 'text-black/80' : 'text-white/70'}`}>
+                    <span className={`text-sm ${plan.popular ? 'text-black/70' : 'text-white/50'}`}>
                       {feature}
                     </span>
                   </li>
@@ -154,7 +145,7 @@ const Pricing = () => {
               </ul>
 
               <button
-                className={`w-full py-4 rounded-full font-semibold text-sm uppercase tracking-wider transition-all ${
+                className={`w-full py-4 rounded-full font-semibold text-sm uppercase tracking-wider transition-all duration-300 ${
                   plan.popular
                     ? 'bg-black text-[#c8ff00] hover:bg-black/80'
                     : 'bg-[#c8ff00] text-black hover:bg-[#d4ff33]'

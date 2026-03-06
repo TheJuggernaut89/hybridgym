@@ -1,7 +1,5 @@
-@import "tailwindcss";
-
-/* Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+@import "tailwindcss";
 
 /* Base Styles */
 * {
@@ -20,11 +18,13 @@ body {
   color: #ffffff;
   line-height: 1.6;
   overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 6px;
 }
 
 ::-webkit-scrollbar-track {
@@ -32,16 +32,33 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #2d2d2d;
-  border-radius: 4px;
+  background: #1a1a1a;
+  border-radius: 3px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #3d3d3d;
+  background: #2a2a2a;
 }
 
 /* Selection */
 ::selection {
   background: #c8ff00;
   color: #0a0a0a;
+}
+
+/* Smooth transitions for interactive elements */
+button, a {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Focus styles */
+button:focus-visible,
+a:focus-visible {
+  outline: 2px solid #c8ff00;
+  outline-offset: 2px;
+}
+
+/* Image loading placeholder */
+img {
+  background-color: #0f0f0f;
 }

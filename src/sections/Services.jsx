@@ -35,22 +35,30 @@ const Services = () => {
   ];
 
   return (
-    <section ref={ref} className="py-24 bg-[#0a0a0a]">
+    <section ref={ref} id="services" className="py-24 bg-[#0a0a0a]">
       <div className="container mx-auto px-6">
         {/* Section Header */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-20">
           <motion.span
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
-            className="text-[#c8ff00] text-sm font-semibold uppercase tracking-widest mb-4 block"
+            className="text-[#c8ff00] text-sm font-medium uppercase tracking-widest mb-6 block"
           >
-            Our Services
+            Our services
           </motion.span>
-          <motion.p
+          <motion.h2
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ delay: 0.1 }}
-            className="text-white/60 text-lg max-w-2xl mx-auto"
+            className="text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight mb-6"
+          >
+            Our services
+          </motion.h2>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ delay: 0.15 }}
+            className="text-white/50 text-lg max-w-xl mx-auto"
           >
             Hybrid offers 5 popular services to help you make comfortable choices that suit your needs.
           </motion.p>
@@ -66,13 +74,13 @@ const Services = () => {
                 initial={{ opacity: 0, y: 30 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ delay: index * 0.1 }}
-                className="group p-8 bg-white/[0.02] border border-white/10 rounded-2xl hover:bg-white/[0.05] hover:border-[#c8ff00]/30 transition-all duration-300"
+                className="group p-8 bg-white/[0.02] border border-white/5 rounded-2xl hover:bg-white/[0.04] hover:border-[#c8ff00]/20 transition-all duration-500"
               >
-                <div className="w-14 h-14 bg-[#c8ff00]/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-[#c8ff00]/20 transition-colors">
+                <div className="w-14 h-14 bg-[#c8ff00]/5 rounded-xl flex items-center justify-center mb-6 group-hover:bg-[#c8ff00]/10 transition-colors duration-500">
                   <Icon className="w-7 h-7 text-[#c8ff00]" />
                 </div>
                 <h3 className="text-white font-semibold text-lg mb-3">{service.title}</h3>
-                <p className="text-white/50 text-sm leading-relaxed">{service.description}</p>
+                <p className="text-white/40 text-sm leading-relaxed">{service.description}</p>
               </motion.div>
             );
           })}

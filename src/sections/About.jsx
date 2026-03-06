@@ -21,11 +21,11 @@ const About = () => {
             initial={{ opacity: 0, x: -30 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
           >
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-8">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-[1.1] mb-8">
               Let&apos;s us Transform Your{' '}
               <span className="text-[#c8ff00]">Fitness Journey</span>
             </h2>
-            <p className="text-white/60 text-lg leading-relaxed mb-8">
+            <p className="text-white/50 text-lg leading-relaxed mb-10">
               We are a leading fitness system with 10 years of experience in the fitness industry and trusted by over 100,000 customers. Our mission is to help you achieve your fitness goals through world-class training and expert guidance.
             </p>
             <button className="px-8 py-4 bg-[#c8ff00] text-black font-semibold rounded-full hover:bg-[#d4ff33] transition-all duration-300 text-sm uppercase tracking-wider">
@@ -38,7 +38,7 @@ const About = () => {
             initial={{ opacity: 0, x: 30 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ delay: 0.2 }}
-            className="grid grid-cols-2 gap-6"
+            className="grid grid-cols-2 gap-4"
           >
             {stats.map((stat, index) => (
               <motion.div
@@ -46,10 +46,10 @@ const About = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ delay: 0.3 + index * 0.1 }}
-                className="p-8 bg-white/[0.02] border border-white/10 rounded-2xl text-center hover:border-[#c8ff00]/30 transition-all duration-300"
+                className="p-8 bg-white/[0.02] border border-white/5 rounded-2xl text-center hover:border-[#c8ff00]/20 transition-all duration-500"
               >
                 <div className="text-4xl md:text-5xl font-bold text-[#c8ff00] mb-2">{stat.value}</div>
-                <div className="text-white/50 text-sm uppercase tracking-wider">{stat.label}</div>
+                <div className="text-white/40 text-sm uppercase tracking-wider">{stat.label}</div>
               </motion.div>
             ))}
           </motion.div>

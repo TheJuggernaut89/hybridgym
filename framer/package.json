@@ -1,0 +1,66 @@
+{
+  "name": "@hybridgym/framer-components",
+  "version": "1.0.0",
+  "description": "StrongX-inspired Framer components for Hybrid Gym fitness website",
+  "main": "index.ts",
+  "author": "Hybrid Gym",
+  "license": "MIT",
+  "framer": {
+    "displayName": "Hybrid Gym Components",
+    "components": [
+      {
+        "name": "HybridHero",
+        "displayName": "Hero Section",
+        "description": "Full-screen hero with animated headline, CTAs, and background image"
+      },
+      {
+        "name": "HybridMarquee",
+        "displayName": "Services Marquee",
+        "description": "Infinite scrolling services banner"
+      },
+      {
+        "name": "HybridServiceCard",
+        "displayName": "Service Card",
+        "description": "Service feature card with icon"
+      },
+      {
+        "name": "HybridStatsCard",
+        "displayName": "Stats Card",
+        "description": "Animated statistics display with parallax"
+      },
+      {
+        "name": "HybridTransformationCard",
+        "displayName": "Transformation Card",
+        "description": "Before/after transformation showcase"
+      },
+      {
+        "name": "HybridTrainerCard",
+        "displayName": "Trainer Card",
+        "description": "Team member card with hover effect"
+      },
+      {
+        "name": "HybridPricingCard",
+        "displayName": "Pricing Card",
+        "description": "Pricing plan card with features"
+      },
+      {
+        "name": "HybridFAQ",
+        "displayName": "FAQ Item",
+        "description": "Accordion FAQ item"
+      },
+      {
+        "name": "HybridCTA",
+        "displayName": "CTA Banner",
+        "description": "Call-to-action banner with pattern"
+      }
+    ]
+  },
+  "dependencies": {
+    "framer": "^2.0.0",
+    "react": "^18.0.0"
+  },
+  "peerDependencies": {
+    "framer": "^2.0.0",
+    "react": "^18.0.0"
+  }
+}

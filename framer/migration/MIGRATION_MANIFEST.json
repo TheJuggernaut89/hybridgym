@@ -1,0 +1,86 @@
+{
+  "project": "Hybrid Gym",
+  "sourceRepo": "https://github.com/TheJuggernaut89/hybridgym",
+  "framerWorkspace": "https://framer.com/join/Harshana-s-Workspace--XtdcLkEUmwtkmyu15owS",
+  "apiKey": "abeb21cf-bcd5-4a15-bd4d-986271055dcf",
+  "migrationDate": "2026-03-06",
+  "mcpServer": "https://mcp.framer.com/mcp/abeb21cf-bcd5-4a15-bd4d-986271055dcf",
+  "components": [
+    {
+      "name": "HybridHero_Migrated",
+      "sourceFile": "src/sections/Hero.jsx",
+      "framerFile": "framer/migration/HybridHero_Migrated.tsx",
+      "type": "Hero Section",
+      "status": "ready",
+      "features": [
+        "Animated headline with highlight text",
+        "Hours badge with clock icon",
+        "Trusted by badge with avatars and stars",
+        "Primary and secondary CTAs",
+        "Background image with gradient mask",
+        "Ambient glow effect",
+        "Staggered entrance animations"
+      ]
+    },
+    {
+      "name": "HybridNav_Migrated",
+      "sourceFile": "src/components/Navigation.jsx",
+      "framerFile": "framer/migration/HybridNav_Migrated.tsx",
+      "type": "Navigation Bar",
+      "status": "ready",
+      "features": [
+        "Fixed position with scroll-aware background",
+        "Logo with highlighted text",
+        "Desktop navigation links",
+        "Join Now CTA button",
+        "Mobile hamburger menu",
+        "Slide-in mobile menu",
+        "Smooth scroll behavior",
+        "Backdrop blur on scroll"
+      ]
+    }
+  ],
+  "designTokens": {
+    "colors": {
+      "background": "#0a0a0a",
+      "accent": "#c8ff00",
+      "textPrimary": "#ffffff",
+      "textSecondary": "rgba(255, 255, 255, 0.5)",
+      "textMuted": "rgba(255, 255, 255, 0.4)",
+      "border": "rgba(255, 255, 255, 0.05)",
+      "borderHover": "rgba(255, 255, 255, 0.08)"
+    },
+    "typography": {
+      "fontFamily": "Inter, sans-serif",
+      "fontWeight": {
+        "medium": 500,
+        "semibold": 600
+      },
+      "letterSpacing": "-0.02em"
+    },
+    "animation": {
+      "easing": [0.16, 1, 0.3, 1],
+      "duration": {
+        "fast": 0.3,
+        "normal": 0.5,
+        "slow": 0.6,
+        "slower": 0.8
+      }
+    }
+  },
+  "instructions": {
+    "manualImport": [
+      "1. Open your Framer project: https://framer.com/join/Harshana-s-Workspace--XtdcLkEUmwtkmyu15owS",
+      "2. Open Code Editor (Cmd/Ctrl + Shift + C)",
+      "3. Create new files: HybridHero_Migrated.tsx and HybridNav_Migrated.tsx",
+      "4. Copy the component code from the migration folder",
+      "5. Components will appear in the Assets panel automatically",
+      "6. Drag and drop onto your canvas"
+    ],
+    "mcpImport": [
+      "1. Ensure MCP server is configured: kimi mcp list",
+      "2. Test connection: kimi mcp test framer",
+      "3. Use Framer CLI to push components (if available)"
+    ]
+  }
+}

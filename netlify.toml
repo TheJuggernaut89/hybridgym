@@ -13,6 +13,6 @@
   status = 200
 
 [context.production]
-  environment = { NODE_VERSION = "18" }
+  environment = { NODE_VERSION = "20" }
 
 # Site ID: 29b2fe22-f2f5-42e3-bc84-52e2dbd53079

@@ -31,16 +31,17 @@ const FAQ = () => {
   ];
 
   return (
-    <section ref={ref} className="py-24 bg-[#0a0a0a]">
-      <div className="container mx-auto px-6">
-        <div className="max-w-3xl mx-auto">
-          {/* Section Header */}
+    <section ref={ref} className="py-28 bg-[#0a0a0a]">
+      <div className="container mx-auto px-6 lg:px-8">
+        <div className="max-w-2xl mx-auto">
+          {/* Section Header - StrongX Style */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-[1.1]">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-semibold text-white leading-[1.05] tracking-[-0.02em]">
               Frequently
               <br />
               <span className="text-[#c8ff00]">asked questions</span>
@@ -48,26 +49,26 @@ const FAQ = () => {
           </motion.div>
 
           {/* FAQ List */}
-          <div className="space-y-3">
+          <div className="space-y-2">
             {faqs.map((faq, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 20 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ delay: index * 0.05 }}
+                transition={{ duration: 0.5, delay: index * 0.05, ease: [0.16, 1, 0.3, 1] }}
                 className={`border rounded-2xl overflow-hidden transition-all duration-300 ${
-                  openIndex === index ? 'border-[#c8ff00]/30 bg-white/[0.02]' : 'border-white/5'
+                  openIndex === index ? 'border-[#c8ff00]/30 bg-white/[0.02]' : 'border-white/[0.05]'
                 }`}
               >
                 <button
                   onClick={() => setOpenIndex(openIndex === index ? -1 : index)}
-                  className="w-full p-6 flex items-center justify-between text-left"
+                  className="w-full p-5 flex items-center justify-between text-left"
                 >
-                  <span className="text-white font-medium pr-4">{faq.question}</span>
-                  <div className={`w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 transition-all duration-300 ${
-                    openIndex === index ? 'bg-[#c8ff00] text-black' : 'bg-white/5 text-white'
+                  <span className="text-white font-medium text-sm pr-4">{faq.question}</span>
+                  <div className={`w-7 h-7 rounded-full flex items-center justify-center flex-shrink-0 transition-all duration-300 ${
+                    openIndex === index ? 'bg-[#c8ff00] text-black' : 'bg-white/[0.05] text-white'
                   }`}>
-                    {openIndex === index ? <Minus className="w-4 h-4" /> : <Plus className="w-4 h-4" />}
+                    {openIndex === index ? <Minus className="w-3.5 h-3.5" /> : <Plus className="w-3.5 h-3.5" />}
                   </div>
                 </button>
                 <AnimatePresence>
@@ -76,9 +77,9 @@ const FAQ = () => {
                       initial={{ height: 0, opacity: 0 }}
                       animate={{ height: 'auto', opacity: 1 }}
                       exit={{ height: 0, opacity: 0 }}
-                      transition={{ duration: 0.3 }}
+                      transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
                     >
-                      <div className="px-6 pb-6 text-white/50 leading-relaxed">
+                      <div className="px-5 pb-5 text-white/40 text-sm leading-relaxed">
                         {faq.answer}
                       </div>
                     </motion.div>

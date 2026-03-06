@@ -18,18 +18,19 @@ const Branches = () => {
   ];
 
   return (
-    <section ref={ref} className="py-24 bg-[#0f0f0f]">
-      <div className="container mx-auto px-6">
-        <div className="grid lg:grid-cols-2 gap-16">
+    <section ref={ref} className="py-28 bg-[#0f0f0f]">
+      <div className="container mx-auto px-6 lg:px-8">
+        <div className="grid lg:grid-cols-2 gap-16 lg:gap-24">
           {/* Content */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           >
-            <span className="text-[#c8ff00] text-sm font-medium uppercase tracking-widest mb-6 block">
+            <span className="text-[#c8ff00] text-sm font-medium uppercase tracking-[0.15em] mb-4 block">
               All branches
             </span>
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-[1.1]">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-semibold text-white leading-[1.05] tracking-[-0.02em]">
               We have{' '}
               <span className="text-[#c8ff00]">8 branches</span> across the United States for your convenience to choose the one closest to you.
             </h2>
@@ -39,24 +40,24 @@ const Branches = () => {
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ delay: 0.2 }}
-            className="grid sm:grid-cols-2 gap-4"
+            transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+            className="grid sm:grid-cols-2 gap-3"
           >
             {branches.map((branch, index) => (
               <motion.div
                 key={branch.city}
                 initial={{ opacity: 0, y: 20 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ delay: 0.3 + index * 0.05 }}
-                className="p-6 bg-white/[0.02] border border-white/5 rounded-2xl hover:border-[#c8ff00]/20 hover:bg-white/[0.03] transition-all duration-500 group cursor-pointer"
+                transition={{ duration: 0.5, delay: 0.3 + index * 0.05, ease: [0.16, 1, 0.3, 1] }}
+                className="p-5 bg-white/[0.02] border border-white/[0.05] rounded-2xl hover:border-[#c8ff00]/20 hover:bg-white/[0.03] transition-all duration-500 group cursor-pointer"
               >
                 <div className="flex items-start gap-3">
-                  <MapPin className="w-5 h-5 text-[#c8ff00] flex-shrink-0 mt-0.5" />
+                  <MapPin className="w-4 h-4 text-[#c8ff00] flex-shrink-0 mt-0.5" />
                   <div>
-                    <div className="text-white font-semibold mb-1 group-hover:text-[#c8ff00] transition-colors duration-300">
+                    <div className="text-white font-medium text-sm mb-0.5 group-hover:text-[#c8ff00] transition-colors duration-300">
                       Hybrid {branch.city}
                     </div>
-                    <div className="text-white/40 text-sm">{branch.address}</div>
+                    <div className="text-white/30 text-xs">{branch.address}</div>
                   </div>
                 </div>
               </motion.div>

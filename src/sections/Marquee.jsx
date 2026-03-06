@@ -1,29 +1,29 @@
 import { motion } from 'framer-motion';
 
 const Marquee = () => {
-  const items = ['Gym', 'Yoga', 'Kickfit', 'Group-X', 'Swimming'];
+  const items = ['Gym', 'yoga', 'Kickfit', 'group-x', 'Swimming'];
   
   return (
-    <section className="py-6 bg-[#0a0a0a] border-y border-white/5 overflow-hidden">
+    <section className="py-5 bg-[#0a0a0a] border-y border-white/[0.05] overflow-hidden">
       <div className="relative">
         <motion.div
-          animate={{ x: [0, -1500] }}
+          animate={{ x: [0, -2000] }}
           transition={{
             x: {
               repeat: Infinity,
               repeatType: 'loop',
-              duration: 25,
+              duration: 30,
               ease: 'linear',
             },
           }}
-          className="flex gap-8 whitespace-nowrap"
+          className="flex gap-12 whitespace-nowrap"
         >
-          {[...items, ...items, ...items, ...items, ...items].map((item, index) => (
-            <div key={index} className="flex items-center gap-8">
-              <span className="text-5xl md:text-6xl lg:text-7xl font-bold text-white/10 uppercase tracking-tight hover:text-[#c8ff00]/30 transition-colors duration-500 cursor-default">
+          {[...items, ...items, ...items, ...items, ...items, ...items].map((item, index) => (
+            <div key={index} className="flex items-center gap-12">
+              <span className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-medium text-white/[0.08] lowercase tracking-tight">
                 {item}
               </span>
-              <span className="w-2 h-2 rounded-full bg-[#c8ff00]/20" />
+              <span className="w-1.5 h-1.5 rounded-full bg-white/[0.15]" />
             </div>
           ))}
         </motion.div>

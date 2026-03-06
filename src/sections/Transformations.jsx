@@ -42,16 +42,19 @@ const Transformations = () => {
     setActiveIndex((prev) => (prev - 1 + transformations.length) % transformations.length);
   };
 
+  const current = transformations[activeIndex];
+
   return (
-    <section ref={ref} className="py-24 bg-[#0f0f0f]">
-      <div className="container mx-auto px-6">
+    <section ref={ref} className="py-28 bg-[#0f0f0f]">
+      <div className="container mx-auto px-6 lg:px-8">
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-[1.1] mb-4">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-semibold text-white leading-[1.05] tracking-[-0.02em]">
             Let&apos;s see our students
             <br />
             <span className="text-[#c8ff00]">have transformed</span>
@@ -62,23 +65,23 @@ const Transformations = () => {
         <AnimatePresence mode="wait">
           <motion.div
             key={activeIndex}
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -30 }}
-            transition={{ duration: 0.4 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
             className="max-w-5xl mx-auto"
           >
-            <div className="bg-white/[0.02] border border-white/5 rounded-3xl p-8 md:p-12">
-              <div className="grid md:grid-cols-2 gap-10 items-center">
+            <div className="bg-white/[0.02] border border-white/[0.05] rounded-3xl p-6 md:p-10">
+              <div className="grid md:grid-cols-2 gap-8 items-center">
                 {/* Image */}
                 <div className="relative">
                   <img
-                    src={transformations[activeIndex].image}
-                    alt={transformations[activeIndex].name}
-                    className="w-full h-[400px] object-cover rounded-2xl"
+                    src={current.image}
+                    alt={current.name}
+                    className="w-full h-[350px] md:h-[420px] object-cover rounded-2xl"
                   />
-                  <div className="absolute top-4 left-4 bg-[#c8ff00] text-black px-4 py-2 rounded-full text-sm font-semibold">
-                    {transformations[activeIndex].duration}
+                  <div className="absolute top-4 left-4 bg-[#c8ff00] text-black px-4 py-2 rounded-full text-sm font-medium">
+                    {current.duration}
                   </div>
                 </div>
 
@@ -87,68 +90,72 @@ const Transformations = () => {
                   {/* Name & Age */}
                   <div className="flex items-center gap-8 mb-8">
                     <div>
-                      <div className="text-white/40 text-sm mb-1">Name:</div>
-                      <div className="text-white text-2xl font-semibold">{transformations[activeIndex].name}</div>
+                      <div className="text-white/30 text-xs uppercase tracking-[0.1em] mb-1">Name:</div>
+                      <div className="text-white text-2xl font-medium">{current.name}</div>
                     </div>
                     <div className="w-px h-12 bg-white/10" />
                     <div>
-                      <div className="text-white/40 text-sm mb-1">Age:</div>
-                      <div className="text-white text-2xl font-semibold">{transformations[activeIndex].age}</div>
+                      <div className="text-white/30 text-xs uppercase tracking-[0.1em] mb-1">Age:</div>
+                      <div className="text-white text-2xl font-medium">{current.age}</div>
                     </div>
                   </div>
 
-                  {/* Before & After Grid */}
-                  <div className="grid grid-cols-2 gap-4 mb-8">
+                  {/* Before & After Stats */}
+                  <div className="grid grid-cols-2 gap-4 mb-6">
                     {/* Before */}
-                    <div className="bg-white/[0.03] rounded-2xl p-6 border border-white/5">
-                      <div className="text-white/40 text-sm mb-6">Before</div>
-                      <div className="mb-4">
-                        <div className="flex items-baseline gap-1">
-                          <span className="text-4xl font-bold text-white">{transformations[activeIndex].before.weight}</span>
-                          <span className="text-white/40 text-sm">kg</span>
+                    <div className="bg-white/[0.03] rounded-2xl p-5 border border-white/[0.05]">
+                      <div className="text-white/30 text-xs uppercase tracking-[0.1em] mb-4">Before</div>
+                      <div className="space-y-3">
+                        <div>
+                          <div className="flex items-baseline gap-1">
+                            <span className="text-3xl font-medium text-white">{current.before.weight}</span>
+                            <span className="text-white/30 text-sm">kg</span>
+                          </div>
+                          <div className="text-white/30 text-xs">Weight</div>
                         </div>
-                        <div className="text-white/40 text-sm">Weight</div>
-                      </div>
-                      <div>
-                        <div className="flex items-baseline gap-1">
-                          <span className="text-4xl font-bold text-white">{transformations[activeIndex].before.bodyFat}</span>
-                          <span className="text-white/40 text-sm">%</span>
+                        <div>
+                          <div className="flex items-baseline gap-1">
+                            <span className="text-3xl font-medium text-white">{current.before.bodyFat}</span>
+                            <span className="text-white/30 text-sm">%</span>
+                          </div>
+                          <div className="text-white/30 text-xs">Body fat</div>
                         </div>
-                        <div className="text-white/40 text-sm">Body fat</div>
                       </div>
                     </div>
 
                     {/* After */}
-                    <div className="bg-[#c8ff00]/5 rounded-2xl p-6 border border-[#c8ff00]/20">
-                      <div className="text-[#c8ff00] text-sm mb-6">After</div>
-                      <div className="mb-4">
-                        <div className="flex items-baseline gap-1">
-                          <span className="text-4xl font-bold text-[#c8ff00]">{transformations[activeIndex].after.weight}</span>
-                          <span className="text-[#c8ff00]/60 text-sm">kg</span>
+                    <div className="bg-[#c8ff00]/[0.08] rounded-2xl p-5 border border-[#c8ff00]/20">
+                      <div className="text-[#c8ff00] text-xs uppercase tracking-[0.1em] mb-4">After</div>
+                      <div className="space-y-3">
+                        <div>
+                          <div className="flex items-baseline gap-1">
+                            <span className="text-3xl font-medium text-[#c8ff00]">{current.after.weight}</span>
+                            <span className="text-[#c8ff00]/50 text-sm">kg</span>
+                          </div>
+                          <div className="text-white/30 text-xs">Weight</div>
                         </div>
-                        <div className="text-white/40 text-sm">Weight</div>
-                      </div>
-                      <div>
-                        <div className="flex items-baseline gap-1">
-                          <span className="text-4xl font-bold text-[#c8ff00]">{transformations[activeIndex].after.bodyFat}</span>
-                          <span className="text-[#c8ff00]/60 text-sm">%</span>
+                        <div>
+                          <div className="flex items-baseline gap-1">
+                            <span className="text-3xl font-medium text-[#c8ff00]">{current.after.bodyFat}</span>
+                            <span className="text-[#c8ff00]/50 text-sm">%</span>
+                          </div>
+                          <div className="text-white/30 text-xs">Body fat</div>
                         </div>
-                        <div className="text-white/40 text-sm">Body fat</div>
                       </div>
                     </div>
                   </div>
 
                   {/* Labels */}
-                  <div className="flex gap-4 mb-8">
-                    <span className="text-white/40 text-sm">Before</span>
+                  <div className="flex gap-6 mb-8">
+                    <span className="text-white/30 text-sm">Before</span>
                     <span className="text-[#c8ff00] text-sm">after</span>
                   </div>
 
                   {/* Navigation */}
-                  <div className="flex items-center gap-4">
+                  <div className="flex items-center gap-3">
                     <button
                       onClick={prev}
-                      className="w-12 h-12 bg-white/5 border border-white/10 rounded-full flex items-center justify-center text-white hover:bg-[#c8ff00] hover:text-black hover:border-[#c8ff00] transition-all duration-300"
+                      className="w-11 h-11 bg-white/[0.03] border border-white/[0.08] rounded-full flex items-center justify-center text-white hover:bg-[#c8ff00] hover:text-black hover:border-[#c8ff00] transition-all duration-300"
                     >
                       <ChevronLeft className="w-5 h-5" />
                     </button>
@@ -157,15 +164,15 @@ const Transformations = () => {
                         <button
                           key={index}
                           onClick={() => setActiveIndex(index)}
-                          className={`h-2 rounded-full transition-all duration-300 ${
-                            index === activeIndex ? 'w-8 bg-[#c8ff00]' : 'w-2 bg-white/20 hover:bg-white/30'
+                          className={`h-1.5 rounded-full transition-all duration-300 ${
+                            index === activeIndex ? 'w-6 bg-[#c8ff00]' : 'w-1.5 bg-white/20 hover:bg-white/30'
                           }`}
                         />
                       ))}
                     </div>
                     <button
                       onClick={next}
-                      className="w-12 h-12 bg-white/5 border border-white/10 rounded-full flex items-center justify-center text-white hover:bg-[#c8ff00] hover:text-black hover:border-[#c8ff00] transition-all duration-300"
+                      className="w-11 h-11 bg-white/[0.03] border border-white/[0.08] rounded-full flex items-center justify-center text-white hover:bg-[#c8ff00] hover:text-black hover:border-[#c8ff00] transition-all duration-300"
                     >
                       <ChevronRight className="w-5 h-5" />
                     </button>

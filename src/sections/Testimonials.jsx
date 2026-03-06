@@ -37,15 +37,16 @@ const Testimonials = () => {
   };
 
   return (
-    <section ref={ref} className="py-24 bg-[#0a0a0a]">
-      <div className="container mx-auto px-6">
+    <section ref={ref} className="py-28 bg-[#0a0a0a]">
+      <div className="container mx-auto px-6 lg:px-8">
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-semibold text-white tracking-[-0.02em]">
             What people <span className="text-[#c8ff00]">say</span>
           </h2>
         </motion.div>
@@ -57,15 +58,15 @@ const Testimonials = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.4 }}
-            className="max-w-3xl mx-auto"
+            transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+            className="max-w-2xl mx-auto"
           >
-            <div className="bg-white/[0.02] border border-white/5 rounded-3xl p-10 md:p-14 text-center">
+            <div className="bg-white/[0.02] border border-white/[0.05] rounded-3xl p-8 md:p-12 text-center">
               {/* Quote Mark */}
-              <div className="text-6xl text-[#c8ff00]/20 font-serif mb-6">"</div>
+              <div className="text-5xl text-[#c8ff00]/30 font-serif mb-8 leading-none">"</div>
 
               {/* Quote */}
-              <p className="text-white/80 text-xl md:text-2xl leading-relaxed mb-10">
+              <p className="text-white/70 text-lg md:text-xl leading-relaxed mb-10">
                 {testimonials[activeIndex].quote}
               </p>
 
@@ -74,38 +75,38 @@ const Testimonials = () => {
                 <img
                   src={testimonials[activeIndex].image}
                   alt={testimonials[activeIndex].name}
-                  className="w-14 h-14 rounded-full object-cover"
+                  className="w-12 h-12 rounded-full object-cover"
                 />
                 <div className="text-left">
-                  <div className="text-white font-semibold text-lg">{testimonials[activeIndex].name}</div>
-                  <div className="text-white/40 text-sm">{testimonials[activeIndex].role}</div>
+                  <div className="text-white font-medium">{testimonials[activeIndex].name}</div>
+                  <div className="text-white/30 text-sm">{testimonials[activeIndex].role}</div>
                 </div>
               </div>
 
               {/* Navigation */}
-              <div className="flex items-center justify-center gap-4">
+              <div className="flex items-center justify-center gap-3">
                 <button
                   onClick={prev}
-                  className="w-12 h-12 bg-white/5 border border-white/10 rounded-full flex items-center justify-center text-white hover:bg-[#c8ff00] hover:text-black hover:border-[#c8ff00] transition-all duration-300"
+                  className="w-10 h-10 bg-white/[0.03] border border-white/[0.08] rounded-full flex items-center justify-center text-white hover:bg-[#c8ff00] hover:text-black hover:border-[#c8ff00] transition-all duration-300"
                 >
-                  <ChevronLeft className="w-5 h-5" />
+                  <ChevronLeft className="w-4 h-4" />
                 </button>
                 <div className="flex gap-2">
                   {testimonials.map((_, index) => (
                     <button
                       key={index}
                       onClick={() => setActiveIndex(index)}
-                      className={`h-2 rounded-full transition-all duration-300 ${
-                        index === activeIndex ? 'w-8 bg-[#c8ff00]' : 'w-2 bg-white/20 hover:bg-white/30'
+                      className={`h-1.5 rounded-full transition-all duration-300 ${
+                        index === activeIndex ? 'w-6 bg-[#c8ff00]' : 'w-1.5 bg-white/20 hover:bg-white/30'
                       }`}
                     />
                   ))}
                 </div>
                 <button
                   onClick={next}
-                  className="w-12 h-12 bg-white/5 border border-white/10 rounded-full flex items-center justify-center text-white hover:bg-[#c8ff00] hover:text-black hover:border-[#c8ff00] transition-all duration-300"
+                  className="w-10 h-10 bg-white/[0.03] border border-white/[0.08] rounded-full flex items-center justify-center text-white hover:bg-[#c8ff00] hover:text-black hover:border-[#c8ff00] transition-all duration-300"
                 >
-                  <ChevronRight className="w-5 h-5" />
+                  <ChevronRight className="w-4 h-4" />
                 </button>
               </div>
             </div>
